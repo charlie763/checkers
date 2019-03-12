@@ -8,6 +8,16 @@ class Piece < Square
 	@@clicked_piece = nil
 	attr_reader :team
 	attr_accessor :x_pos, :y_pos, :queen, :color_change
+
+	DEFAULT_OPTS = {
+    x: 400, 
+    y: 5,
+    z: 0,
+    text: "Hello World!",
+    size: 25,
+    font: "../checkers/data/Roboto-Regular.ttf" # '..' means the directory above this one.
+  }.freeze
+
 	def initialize(opts = {})
 		extend Ruby2D::DSL
 		@x_pos = opts[:x_pos]
@@ -45,16 +55,20 @@ class Piece < Square
 	def self.clicked_piece
 		@@clicked_piece
 	end
+
 	def self.reset_clicked_piece
 		@@clicked_piece = nil
 	end
+
 	def self.active_pieces
 		@@active_pieces
 	end
+
 	def self.remove_active_piece(piece)
 		piece.remove
 		@@active_pieces.delete(piece)
 	end
+
 	def self.piece_by_position(position)
 		@@active_pieces.select{|piece| piece.position==position}[0]
 	end

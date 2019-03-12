@@ -1,5 +1,5 @@
 
-# extra - make code more effecient, i.e. passing jumpable arg twice, tile doesn't need to be called as an instance only position really important (check), jumped_position arg not needed, cases instead of if/else
+# extra - make code more effecient, i.e. passing jumpable arg twice (check), tile doesn't need to be called as an instance only position really important (check), jumped_position arg not needed, cases instead of if/else
 
 
 require 'ruby2d'
@@ -56,7 +56,7 @@ update do
 						elsif y_delta == -4 && abs_x_delta == 4 || 0 && moveable_black 
 							board.double_jump(double_jumpable)
 						else
-							board.change_prompt("Can't make that move bitch!")
+							board.change_prompt("Can't make that move!")
 						end
 					end
 				end
